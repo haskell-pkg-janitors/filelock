@@ -1,6 +1,6 @@
 cabal-version:       >=1.10
 name:                filelock
-version:             0.1.1.6
+version:             0.1.1.7
 synopsis:            Portable interface to file locking (flock / LockFileEx)
 description:         This package provides an interface to Windows and Unix
                      file locking functionalities.
@@ -33,8 +33,10 @@ library
   exposed-modules:     System.FileLock
   other-modules:       System.FileLock.Internal.Flock
                        System.FileLock.Internal.LockFileEx
-  build-depends:       base >=4.9.0.0 && <5
   default-language:    Haskell2010
+
+  build-depends:       base >=4.9.0.0 && <5
+  build-tools:         hsc2hs
 
   ghc-options:        -Wall
   if os(windows)
