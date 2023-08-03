@@ -1,5 +1,14 @@
 Changelog for filelock package
 
+0.1.1.7
+-------
+
+_2023-08-03, Andreas Abel_
+
+* Add `build-tools: hsc2hs` to `.cabal` for building with GHC 8.x
+
+Tested with GHC 8.0 - 9.8.1-alpha1.
+
 0.1.1.6
 -------
 
