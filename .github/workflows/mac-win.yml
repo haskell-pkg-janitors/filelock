@@ -3,11 +3,9 @@ on:
   push:
     branches:
       - master
-      - ci-*
   pull_request:
     branches:
       - master
-      - ci-*
 
 jobs:
   mac-win:
@@ -23,13 +21,7 @@ jobs:
 
     - uses: actions/checkout@v3
 
-    - name: Info about Haskell versions
-      run: |
-        ghc --version
-        cabal --version
-
-    - name: Update cabal package repository
-      run:  cabal update
+    - uses: haskell-actions/setup@latest
 
     - name: Build
       run:  cabal build
