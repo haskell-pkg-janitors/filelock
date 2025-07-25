@@ -86,6 +86,6 @@ unlockFile (Lock l ref) = do
 withFileLock :: FilePath -> SharedExclusive -> (FileLock -> IO a) -> IO a
 withFileLock path mode = E.bracket (lockFile path mode) unlockFile
 
--- | Perform sme action with a lock held. Non-blocking.
+-- | Perform some action with a lock held. Non-blocking.
 withTryFileLock :: FilePath -> SharedExclusive -> (FileLock -> IO a) -> IO (Maybe a)
 withTryFileLock path mode f = E.bracket (tryLockFile path mode) (traverse unlockFile) (traverse f)
