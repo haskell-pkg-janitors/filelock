@@ -1,6 +1,6 @@
-cabal-version:       >=1.10
+cabal-version:       1.18
 name:                filelock
-version:             0.1.1.7
+version:             0.1.1.8
 synopsis:            Portable interface to file locking (flock / LockFileEx)
 description:         This package provides an interface to Windows and Unix
                      file locking functionalities.
@@ -12,11 +12,13 @@ maintainer:          Andreas Abel
 category:            System
 build-type:          Simple
 
-extra-source-files:
+extra-doc-files:
   CHANGELOG.md
+extra-source-files:
   tests/lock.log.expected
 
 tested-with:
+  GHC == 9.14.1
   GHC == 9.12.2
   GHC == 9.10.2
   GHC == 9.8.4
@@ -61,7 +63,7 @@ test-suite interrupt
   type:               exitcode-stdio-1.0
   hs-source-dirs:     tests
   main-is:            interrupt.hs
-  build-depends:      filelock, process >= 1.2.1.0, base
+  build-depends:      filelock, base
   ghc-options:        -threaded
   default-language:   Haskell2010
   if os(windows)

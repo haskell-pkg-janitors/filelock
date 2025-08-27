@@ -1,5 +1,14 @@
 Changelog for filelock package
 
+0.1.1.8
+-------
+
+_2025-08-27, Andreas Abel_
+
+* Remove obsolete `deriving Typeable`.
+
+Tested with GHC 8.0 - 9.14.1-alpha1.
+
 0.1.1.7
 -------
 

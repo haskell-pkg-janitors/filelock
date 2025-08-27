@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE CPP #-}
 
 -- | This module provides a portable interface to file locks as a mechanism for
@@ -38,7 +37,6 @@ import Control.Applicative
 import qualified Control.Exception as E
 import Control.Monad
 import Data.IORef
-import Data.Typeable
 import Prelude
 
 #ifdef USE_FLOCK
@@ -53,7 +51,6 @@ import qualified System.FileLock.Internal.LockFileEx as I
 data FileLock = Lock
   {-# UNPACk #-} !I.Lock
   {-# UNPACk #-} !(IORef Bool) -- alive?
-  deriving (Typeable)
 
 instance Eq FileLock where
   Lock _ x == Lock _ y = x == y
@@ -65,7 +62,7 @@ newLock x = Lock x <$> newIORef True
 data SharedExclusive
   = Shared -- ^ Other process can hold a shared lock at the same time.
   | Exclusive -- ^ No other process can hold a lock, shared or exclusive.
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq)
 
 -- | Take a lock. This function blocks until the lock is available.
 lockFile :: FilePath -> SharedExclusive -> IO FileLock
