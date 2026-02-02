@@ -1,5 +1,16 @@
 Changelog for filelock package
 
+0.1.1.9
+-------
+
+_2026-02-02, Andreas Abel_
+
+* Bump `cabal-version` to 2.2 to get license identifier to `CC0-1.0`
+  ([Issue #10](https://github.com/haskell-pkg-janitors/filelock/issues/10)).
+* Drop support for GHCs 8.0 and 8.2.
+
+Tested with GHC 8.4 - 9.14.1.
+
 0.1.1.8
 -------
 
